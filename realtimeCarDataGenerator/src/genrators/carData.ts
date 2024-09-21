@@ -13,13 +13,13 @@ function getRandomInt(min: number, max: number) {
   
   function getRandomDate() {
     const now = new Date();
-    const pastDate = new Date(now.setMonth(now.getMonth() - getRandomInt(1, 12)));
-    return pastDate.toISOString().replace('T', ' ').replace('Z', '');
+    const futureDate = new Date(now.setMonth(now.getMonth() + getRandomInt(1, 12))); 
+    return futureDate.toISOString().replace('T', ' ').replace('Z', ''); 
   }
   
   function generateRandomVehicleData() {
     const vehicleData = [];
-    const vehicleCount = 1; // Generate between 3 to 10 vehicles
+    const vehicleCount = 1; 
   
     for (let i = 0; i < vehicleCount; i++) {
       const vehicle = {
@@ -54,6 +54,7 @@ function getRandomInt(min: number, max: number) {
         averageBatteryTemp: getRandomInt(0, 50),
         totalChargeCurrent: getRandomInt(4000, 7000),
         totalDischargeCurrent: getRandomInt(4000, 7000),
+        insurance_validity_date : getRandomDate(),
       };
   
       vehicleData.push(vehicle);

@@ -1,0 +1,16 @@
+{
+        "imei_substring" : "D93WD6CZNK515",
+		"insurance_validity_date" : "2024-11-17",
+		"iot_connected" : false,
+		"battery_percentage" : 98,
+		"drive_mode" : "Normal",
+		"longitude" : 73.023095,
+		"latitude" : 19.068615,
+		"last_seen_at" : "2024-09-14T13:57:39.000Z",
+		"last_speed" : 0,
+		"co2_saved" : "572.03244",
+		"fuel_saved" : "509.9514000000001",
+		"location_last_updated" : "2024-09-14T13:57:39.000Z",
+		"max_speed" : 55,
+		"total_odometer" : 14781.2
+}
