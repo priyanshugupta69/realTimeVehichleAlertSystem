@@ -36,7 +36,7 @@ socket.on('vehicleData', (data) => {
                 status: "resolved",
                 isCritical: true,
             }
-            io.emit('batteryAlert',  );
+            io.emit('batteryAlert', alert );
         }
         const insuranceExpireDateString = vehicle.insurance_validity_date
         const insuranceExpireDate = new Date(insuranceExpireDateString);
@@ -46,8 +46,9 @@ socket.on('vehicleData', (data) => {
                 vehicle_id: vehicle.id,
                 message: "Your insurance exipring in less than 30 days",
                 status: "resolved",
+                isCritical: false,
             }
-            io.emit('insuranceAlert', {message: 'Insurance is going to expire soon', type: 'warning'} );
+            io.emit('insuranceAlert', alert );
             Alert.create(alert).then((data) => {
                 console.log('Insurance alert created');
             }).catch((err) => {
@@ -85,7 +86,7 @@ setInterval(()=>{
             isOnline: false,
             isCritical: true,
         }
-        io.emit('offlineAlert', {message: 'No data recived from last 20 minutes..', type: 'critical'} );
+        io.emit('offlineAlert', alert );
         Alert.create(alert).then((data) => {
             console.log('Offline alert created');
         }).catch((err) => {
@@ -102,7 +103,7 @@ setInterval(()=>{
             isOnline: false,
             isCritical: true,
         }
-        io.emit('deepOfflineAlert', {message: 'Deep discharege alert', type: 'critical'} );
+        io.emit('deepOfflineAlert', alert );
     }
 }, 1000);
 
